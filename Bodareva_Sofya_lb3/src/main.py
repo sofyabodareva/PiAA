@@ -1,3 +1,9 @@
+import time
+import random
+import string
+
+
+
 def replace_cost(ch1: str, ch2: str,  special_ch: str, special_cost: int) -> int:
     if ch1 == ch2:
         return 0
@@ -24,6 +30,9 @@ def LevenshteinDistance(str1: str, str2: str, ch_replace: str, replace: int, ch_
         previous, current = current, previous
     return previous[n]
 
+
+#S = [random.choice(string.ascii_letters) for _ in range(2500)]
+#T = [random.choice(string.ascii_letters) for _ in range(2500)]
 S = list(input())
 T = list(input())
 ch_r, r_cost = '', 1
@@ -37,5 +46,8 @@ insert_input = input()
 if insert_input:
     ch_i, i_cost = insert_input.split()
     i_cost = int(i_cost)
- 
-print(LevenshteinDistance(S, T, ch_r, r_cost, ch_i, i_cost))
+
+start = time.time()
+L = LevenshteinDistance(S, T, ch_r, r_cost, ch_i, i_cost)
+finish = time.time()
+print(L, finish-start)
