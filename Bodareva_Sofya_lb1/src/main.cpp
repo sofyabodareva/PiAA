@@ -46,15 +46,17 @@ class Table{
 
     void backtracking(int column, int row, int filledPart) {
         ++iterations;
-        log.push_back("\nВход в функцию backtracking №" + std::to_string(iterations) +
+        log.push_back("\nВход в функцию backtracking №" + std::to_string(iterations)
         + "\nКоординаты начала поиска: (" + std::to_string(column) + ", " + std::to_string(row)
         + ")\nПлощадь заполненной части: " + std::to_string(filledPart) 
         + "\nКоличество квадратов в текущем разбиении: " + std::to_string(currentSplitting.size()));
         for (int y{row}; y <= size; ++y) {
             for (int x{column}; x <= size; ++x) {
+                log.push_back("Проверяем, можно ли вставить квадрат в точку (" + std::to_string(x) +
+                ", " + std::to_string(y) + ")");
                 if (!isUsed(x, y)) {
-                    log.push_back("Координаты вставки нового квадрата: (" + std::to_string(column)+
-                    ", " + std::to_string(row) + ")");
+                    log.push_back("Координаты вставки нового квадрата: (" + std::to_string(x)+
+                    ", " + std::to_string(y) + ")");
                     int squareSize = std::min(size - x,  size - y) + 1;
                     for (const Piece& piece : currentSplitting) {
                         if (piece.row + piece.pieceSize > y && piece.column > x)
