@@ -78,5 +78,5 @@ def file_input():
 
 
 
-file_input()
-#console_input()
+#file_input()
+console_input()

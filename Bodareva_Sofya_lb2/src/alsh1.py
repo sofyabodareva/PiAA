@@ -95,4 +95,6 @@ def file_input():
     else:
         print(path)
 
-file_input()
+
+#file_input()
+console_input()
